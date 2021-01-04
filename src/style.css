@@ -1,0 +1,43 @@
+.textField
+{
+    -fx-border-color:#3773d4;
+    -fx-border-style:solid;
+    -fx-border-width:1.5px;
+    -fx-font-family: HoloLens MDL2 Assets;
+    -fx-font-size:14px;
+}
+
+.textField:hover,
+.textField:focus,
+.textField:active,
+.textField:checked {
+    -fx-border-color:#bf2138;
+}
+
+.textInfo
+{
+    -fx-font-family: DejaVu Sans;
+    -fx-font-size:14px;
+    -fx-text-fill:#3773d4;
+}
+
+.textInfo:active,
+         :focus {
+             -fx-border-color:#bf2138;
+}
+
+.button
+{
+     -fx-font-family: HoloLens MDL2 Assets;
+     -fx-font-size:16px;
+     -fx-cursor:hand;
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button:checked {
+    -fx-border-color:#bf2138;
+    -fx-border-width:2.5px;
+    -fx-border-radius:3px;
+}
