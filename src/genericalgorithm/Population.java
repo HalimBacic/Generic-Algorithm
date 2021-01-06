@@ -7,6 +7,7 @@ import point.Point3D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,15 +30,19 @@ public class Population<T extends Point> {
      * @param T can be Point3D or Point2D
      */
     public Population(Integer numOfPopulation, Class<?> T) throws IOException {
-        if (Point3D.class.getClass().equals(T)) {
+
+        BufferedWriter writer;
+        if (T.isAssignableFrom(Point3D.class)) {
             generatePopulationPoint3D(numOfPopulation);
+            sortPopulation();
+            writer=new BufferedWriter(new FileWriter("3d.txt",true));
+            writer.write("INICIJALNO\n"+toString());
         } else {
             generatePopulationPoint2D(numOfPopulation);
+            sortPopulation();
+            writer=new BufferedWriter(new FileWriter("2d.txt",true));
+            writer.write("INICIJALNO\n"+toString());
         }
-        sortPopulation();
-
-        BufferedWriter writer=new BufferedWriter(new FileWriter("3d.txt",true));
-        writer.write("INICIJALNO\n"+toString());
         writer.close();
     }
 
