@@ -9,7 +9,6 @@ import point.Point;
 import point.Point2D;
 import point.Point3D;
 import java.io.File;
-import java.io.IOException;
 
 public class Controller {
 

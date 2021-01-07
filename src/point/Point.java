@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 /**
  * Main class for implementing Point
  */
-public class Point implements Comparable<Point> {
+public class Point  {
 
     private Double x;
     private Double y;
@@ -61,15 +61,7 @@ public class Point implements Comparable<Point> {
         return z;
     }
 
-    @Override
-    public int compareTo(Point p) {
-            double temp = p.getZ() - getZ();
 
-            if (temp > 0.0)
-                return 1;
-            else
-                return -1;
-    }
 
     @Override
     public String toString() {
