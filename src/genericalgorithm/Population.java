@@ -1,15 +1,17 @@
 package genericalgorithm;
 
+import Comparators.ComparePoint2D;
+import Comparators.ComparePoint3D;
 import point.Point;
 import point.Point2D;
 import point.Point3D;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -34,12 +36,12 @@ public class Population<T extends Point> {
         BufferedWriter writer;
         if (T.isAssignableFrom(Point3D.class)) {
             generatePopulationPoint3D(numOfPopulation);
-            sortPopulation();
+            sortPopulation(new ComparePoint3D());
             writer=new BufferedWriter(new FileWriter("3d.txt",true));
             writer.write("INICIJALNO\n"+toString());
         } else {
             generatePopulationPoint2D(numOfPopulation);
-            sortPopulation();
+            sortPopulation(new ComparePoint2D());
             writer=new BufferedWriter(new FileWriter("2d.txt",true));
             writer.write("INICIJALNO\n"+toString());
         }
@@ -79,15 +81,8 @@ public class Population<T extends Point> {
     /**
      * Function for sorting individuals in population. Sorting criterium is calculated fitness function
      */
-    public void sortPopulation() throws IOException {
-        population.sort((o1, o2) -> {
-            if(o1.getFitness()>o2.getFitness())
-                return 1;
-            else if(o1.getFitness()<o2.getFitness())
-                return -1;
-            else
-                return 0;
-        });
+    public void sortPopulation(Comparator cmp) {
+        Collections.sort(population,cmp);
     }
 
     @Override

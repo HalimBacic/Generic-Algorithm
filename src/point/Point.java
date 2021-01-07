@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 /**
  * Main class for implementing Point
  */
-public class Point  {
+public class Point{
 
     private Double x;
     private Double y;
@@ -60,8 +60,6 @@ public class Point  {
     public Double getZ() {
         return z;
     }
-
-
 
     @Override
     public String toString() {

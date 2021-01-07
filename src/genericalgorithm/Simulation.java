@@ -1,5 +1,7 @@
 package genericalgorithm;
 
+import Comparators.ComparePoint2D;
+import Comparators.ComparePoint3D;
 import point.Point;
 import point.Point2D;
 import point.Point3D;
@@ -7,6 +9,7 @@ import point.Point3D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -22,6 +25,7 @@ public class Simulation<T extends Point> implements BinaryRepresentation {
     private Integer iterNum;
     private Population<T> population;
     private Population<T> newGeneration = new Population<>();
+    private Comparator cmp;
 
     /**
      * Base constructor
@@ -38,6 +42,10 @@ public class Simulation<T extends Point> implements BinaryRepresentation {
         this.mutCh = mutC;
         this.population = population;
         this.iterNum = iterNum;
+        if(population.getPopulation().get(0) instanceof Point3D)
+            cmp=new ComparePoint3D();
+        else if(population.getPopulation().get(0) instanceof Point2D)
+            cmp=new ComparePoint2D();
     }
 
     public Population<T> getPopulation() {
@@ -51,7 +59,7 @@ public class Simulation<T extends Point> implements BinaryRepresentation {
         while (iterNum > 0) {
             crossing();
             fitness();
-            population.sortPopulation();
+            population.sortPopulation(cmp);
             selectBestInPopulation();
             iterNum--;
 
