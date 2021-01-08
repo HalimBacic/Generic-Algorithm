@@ -19,7 +19,7 @@
                </font></TextField>
             <TextField id="cross" fx:id="cross" layoutX="14.0" layoutY="66.0" prefHeight="33.0" prefWidth="181.0" promptText="Cross %" styleClass="textField" stylesheets="@style.css" />
             <TextField id="mutation" fx:id="mutation" layoutX="14.0" layoutY="108.0" prefHeight="33.0" prefWidth="181.0" promptText="Mutation %" styleClass="textField" stylesheets="@style.css" />
-            <TextField id="iteration" fx:id="iteration" layoutX="14.0" layoutY="150.0" prefHeight="33.0" prefWidth="181.0" promptText="Iteration" styleClass="textField" stylesheets="@style.css" />
+            <TextField id="iteration" fx:id="iteration" layoutX="14.0" layoutY="150.0" prefHeight="34.0" prefWidth="85.0" promptText="Iteration" styleClass="textField" stylesheets="@style.css" />
             <Button id="run3d" fx:id="run3d" layoutX="14.0" layoutY="194.0" mnemonicParsing="false" onAction="#simulate3d" prefHeight="33.0" prefWidth="85.0" stylesheets="@style.css" text="Run 3D" textAlignment="RIGHT" />
             <Button id="run2d" fx:id="run2d" layoutX="108.0" layoutY="194.0" mnemonicParsing="false" onAction="#simulate2d" prefHeight="33.0" prefWidth="85.0" style="-fx-cursor: pointer;;" stylesheets="@style.css" text="Run 2D" />
             <Text layoutX="14.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="by Halim Bacic">
@@ -27,6 +27,7 @@
                   <Font name="Linux Biolinum G Regular" size="15.0" />
                </font>
             </Text>
+            <TextField id="iteration" fx:id="ontop" layoutX="108.0" layoutY="150.0" prefHeight="34.0" prefWidth="85.0" promptText="Toleration" styleClass="textField" stylesheets="@style.css" />
          </children>
       </Pane>
       <TextArea id="info" fx:id="info" editable="false" layoutX="258.0" layoutY="14.0" prefHeight="96.0" prefWidth="352.0" styleClass="textInfo" stylesheets="@style.css">
@@ -36,6 +37,6 @@
          <opaqueInsets>
             <Insets top="20.0" />
          </opaqueInsets></TextArea>
-      <Button fx:id="details" disable="true" layoutX="540.0" layoutY="126.0" mnemonicParsing="false" stylesheets="@style.css" text="Details" />
+      <Button fx:id="details" disable="true" layoutX="540.0" layoutY="126.0" mnemonicParsing="false" onAction="#showDetails" stylesheets="@style.css" text="Details" />
    </children>
 </AnchorPane>

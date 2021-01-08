@@ -5,6 +5,8 @@ package point;
  */
 public class Point3D extends Point{
 
+    public Point3D(){};
+
     public Point3D(Double x, Double y) {
         super(x,y);
     }

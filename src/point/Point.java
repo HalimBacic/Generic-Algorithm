@@ -14,6 +14,7 @@ public class Point{
     private Double z;
     private Double fitness=0.0;
 
+    public Point(){};
 
     public Point(Double x, Double y)
     {

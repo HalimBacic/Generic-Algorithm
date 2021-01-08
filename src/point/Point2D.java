@@ -5,6 +5,9 @@ package point;
  */
 public class Point2D extends Point implements Comparable<Point2D>{
 
+    public Point2D()
+    {};
+
     public Point2D(Double y)
     {
         super(y);

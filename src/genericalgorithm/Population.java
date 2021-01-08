@@ -26,6 +26,11 @@ public class Population<T extends Point> {
 
     public Population()
     {}
+
+    public Population(Population<T> p)
+    {
+        this.population.addAll(p.getPopulation());
+    }
     /**
      *
      * @param numOfPopulation number of individuals in population
@@ -61,7 +66,7 @@ public class Population<T extends Point> {
         while (numOfPopulation > 0) {
             Random random = new Random();
             Double x = (3 - random.nextInt(6)) * random.nextDouble();
-            Double y = random.nextInt(4) * random.nextDouble();
+            Double y = (4-random.nextInt(8)) * random.nextDouble();
             Point3D point = new Point3D(x, y);
             population.add((T) point);
             numOfPopulation--;
